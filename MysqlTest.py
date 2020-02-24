@@ -53,7 +53,8 @@ def bulk_insert_test(ds):
                         values = outCursor.fetchmany(SIZE)
             except Error:
                 connin.rollback()
-            connin.commit()
+            else:
+                connin.commit()
     finally:
         connout.close()
         connin.close()
